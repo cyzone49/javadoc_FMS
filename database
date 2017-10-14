@@ -1,0 +1,43 @@
+drop table User;
+drop table Person;
+drop table AuthToken;
+drop table Event;
+
+create table User {
+    userName String not null,
+    password String not null,
+    email String not null;
+    firstName String not null,
+    lastName String not null,
+    gender String not null;
+    personID String not null primary key
+};
+
+create table Person {
+    personID String not null primary key,
+    descendant String not null,
+    firstName String not null,
+    lastName String not null,
+    gender String not null,
+    father String,
+    mother String,
+    spouse String
+    generation int not null
+};
+create table Event {
+    eventID String not null primary key,
+    descendant String not null,
+    personID String not null,
+    latitude double not null,
+    longitude double not null,
+    country String not null,
+    city String not null,
+    eventType String not null,
+    year int not null
+};
+create table AuthToken {
+    authToken String not null primary key,
+    personID String not null,
+    username String not null
+};
+
